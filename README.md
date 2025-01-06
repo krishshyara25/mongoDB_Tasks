@@ -1,8 +1,36 @@
-##Task 1: Create a "CodingGita Students" database
+#Task 1: Create a "CodingGita Students" database.
 
-###Create a new MongoDB database called CodingGita. Add two collections:
+##Step 1 : create database named "codinggita". 
 
-###students: Name, roll number, department, year, courses enrolled.
-...use codinggita
-...db.createCollection("students");
-...db.createCollection("courses");
+    ```use codinggita```
+
+##Step 2 : create collections named "students".
+
+    ```db.createCollection("students");```
+
+##Step 3 : create collections named "courses".
+
+    ```db.createCollection("courses");```
+
+##Step 4 : Insert sample data into student collection. 
+
+    ```db.students.insertMany([
+        {
+	        "name":"Krish Shyara",
+	        "rollnumber":103,
+	        "department":"Computer science",
+	        "year":"3",
+	        "coursesEnrolled": ["CS101", "CS102"]
+        }
+        ]);```
+
+##Step 5 : Insert sample data into courses collection. 
+
+    ```db.courses.insertMany([
+        {
+            "courseCode": "CS101", 
+            "courseName": "Frontend Development", 
+            "credits": 4, 
+            "instructor": "Prof. Mehta" 
+        }
+        ]);```
