@@ -122,48 +122,76 @@ db.students.find(
 ### Update the year for all students in the Computer Science department to year 3.
 
 ```
-
+db.students.updateMany(
+  {department : "Computer Science"},
+  {$set : {year : 3}}
+);
 ```
 
 ## Task 9:  Add new topics to multiple subjects
 ### Add new topics to React, NodeJS, and MongoDB subjects. Ensure each subject gets at least one new topic.
 
 ```
-
+db.subjects.updateMany(
+  {subjectName : "NodeJS"},
+  {$push : {topics : "Event loop"}}
+);
+```
+```
+db.subjects.updateMany(
+  {subjectName : "React"},
+  {$push : {topics : "Events"}}
+);
+```
+```
+db.subjects.updateMany(
+  {subjectName : "MongoDB"},
+  {$push : {topics : "Sharding"}}
+);
 ```
 
 ## Task 10: Remove a topic from a subject
 ### Remove the topic "Express" from the NodeJS subject.
 
 ```
-
+db.subjects.updateOne(
+  {subjectName : "NodeJS"},
+  {$pull : {topics : "Express"}}
+);
 ```
 
 ## Task 11: Query all students in a specific year
 ### Query and return all students in year 2 or year 3.
 
 ```
-
+db.students.find(
+    {"year":{$in:[2,3]}
+  });
 ```
 
 ## Task 12: Delete a student by roll number
 ### Delete a student from the database using their roll number.
 
 ```
-
+db.students.deleteOne(
+  {rollNumber : 105}
+);
 ```
 
 ## Task 13: Delete all students from a department
 ### Delete all students who belong to the Electrical Engineering department.
 
 ```
-
+db.students.deleteMany(
+  {department : "Electrical Engineering}
+);
 ```
 
 ## Task 14: Retrieve all topics for a subject
 ### Query the MongoDB subject and retrieve all topics listed for it.
 
 ```
+db.subjects.find({},{subjectName:1,topics:1,_id:0});
 
 ```
 
