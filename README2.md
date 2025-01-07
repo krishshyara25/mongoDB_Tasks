@@ -197,7 +197,3 @@ db.subjects.find({},{subjectName:1,topics:1,_id:0});
 
 ## Task 15: Count the number of subjects in which a student is enrolled
 ### Write a query that returns the number of subjects each student is enrolled in.
-
-```
-
-```
